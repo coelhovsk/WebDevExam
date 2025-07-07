@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const submitButton = document.getElementById('submitButton');
     const addressForm = document.getElementById('addressForm');
     const addressList = document.getElementById('addressList');
-    const search = document.getElementById("search")
+    const search = document.getElementById("searchInput");
     // Carrega endereços salvos ao iniciar
     loadSavedAddresses();
 
@@ -119,19 +119,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function filter(){
-        console.log('em desenvolvimento')
-        var searchQuery = document.getElementById('search').value;
-        var localStorageItem = localStorage.getItem(searchQuery);
-        const savedAddresses = JSON.parse(localStorage.getItem('savedAddresses')) || [];
+        var searchQuery = document.getElementById('searchInput').value;
+        const savedAddresses = JSON.parse(localStorage.getItem('savedAddresses')).filter(savedAddresses => savedAddresses.nome.startsWith(searchQuery)) || [];
         addressList.innerHTML = '';
 
         if (savedAddresses.length === 0) {
             addressList.innerHTML = '<p class="text-center">Nenhum endereço salvo ainda.</p>';
             return;
         }
+
+
         savedAddresses.forEach((address, index) => {
-            var name = address.nome;
-            if(name.startsWith(searchQuery)){
             const card = document.createElement('div');
             card.className = 'col-md-6 mb-3';
             card.innerHTML = `
@@ -146,7 +144,15 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Remover</button>
                             </div>
                         </div>
-                    `;}
+                    `;
+            addressList.appendChild(card);
+        });
+
+        // Adiciona eventos aos botões de excluir
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                deleteAddress(parseInt(this.getAttribute('data-index')));
+            });
         });
     }
 
