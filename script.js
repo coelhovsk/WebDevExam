@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Salvar endereço
     submitButton.addEventListener('click', function () {
+        
         saveAddress();
     });
 
@@ -74,8 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function saveAddress() {
         const nome = document.getElementById('nome').value.trim();
         const cep = document.getElementById('cep').value.trim();
-        const email = document.getElementById('email').value.trim();
-
+        document.getElementById("email").validity.valid
         if (!nome || !cep) {
             alert('Por favor, preencha pelo menos o nome e o CEP');
             return;
@@ -133,7 +133,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <p class="card-text"> ${address.logradouro || 'N/A'}, N° ${address.numero || 'N/A'},</p>
                                 <p class="card-text"> ${address.bairro || 'N/A'}, ${address.cidade || 'N/A'} - ${address.uf || 'N/A'}</p>
                                 <p class="small class="text-muted">CEP:</strong> ${address.cep}</p>
-                                <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Excluir</button>
+                                <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Editar</button>
+                                <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Remover</button>
                             </div>
                         </div>
                     `;
