@@ -127,16 +127,12 @@ document.addEventListener('DOMContentLoaded', function () {
             card.className = 'col-md-6 mb-3';
             card.innerHTML = `
                         <div class="card address-card">
-                            <div class="card-header bg-success text-white">
-                                <h5 class="card-title mb-0">${address.nome}</h5>
-                            </div>
                             <div class="card-body">
+                                <h5 class="card-title mb-0">${address.nome}</h5>
                                 <p class="card-text"><strong>Email:</strong> ${address.email}</p>
-                                <p class="card-text"><strong></strong> ${address.logradouro || 'N/A'}, N° ${address.numero || 'N/A'},</p>
-                                <p class="card-text"><strong></strong> ${address.bairro || 'N/A'}, ${address.cidade || 'N/A'} - ${address.uf || 'N/A'}</p>
+                                <p class="card-text"> ${address.logradouro || 'N/A'}, N° ${address.numero || 'N/A'},</p>
+                                <p class="card-text"> ${address.bairro || 'N/A'}, ${address.cidade || 'N/A'} - ${address.uf || 'N/A'}</p>
                                 <p class="small class="text-muted">CEP:</strong> ${address.cep}</p>
-                            </div>
-                            <div class="card-footer bg-light">
                                 <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Excluir</button>
                             </div>
                         </div>

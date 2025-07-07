@@ -13,60 +13,60 @@
         <div class="tabelona">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBoBGCfBTDL-sHFj2kWebAs9jB5qtQuGfYRQ&s"
                 alt="">
-            <h1>Consulta de CEP</h1>
-            <div>
-                <form id="addressForm">
-                    <div class="form-group">
-                        <label for="nome">Nome:</label>
+            <h1>Cadastro de Alunos</h1>
+            <div >
+                <form id="addressForm" class="row g-3">
+                    <div class="col-md-6">
+                        <label for="nome">Nome</label>
                         <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="nome">Email:</label>
+                    <div class="col-md-6">
+                        <label for="nome">Email</label>
                         <input type="text" id="email" name="email" placeholder="Digite seu email" required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="cep">CEP:</label>
+                    <div class="form-group col-md-4">
+                        <label for="cep">CEP</label>
                         <input type="text" id="cep" name="cep" placeholder="Digite o CEP (somente números)"
                             maxlength="8" required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="logradouro">Logradouro:</label>
+                    <div class="form-group col-md-6">
+                        <label for="logradouro">Logradouro</label>
                         <input type="text" id="logradouro" name="logradouro">
                     </div>
 
-                    <div class="form-group">
-                        <label for="numero">Numero:</label>
+                    <div class="form-group col-md-2">
+                        <label for="numero">Numero</label>
                         <input type="text" id="numero" name="numero">
                     </div>
 
-                    <div class="form-group">
-                        <label for="bairro">Bairro:</label>
+                    <div class="form-group col-md-4">
+                        <label for="bairro">Bairro</label>
                         <input type="text" id="bairro" name="bairro">
                     </div>
 
-                    <div class="form-group">
-                        <label for="localidade">Cidade:</label>
+                    <div class="form-group col-md-4">
+                        <label for="localidade">Cidade</label>
                         <input type="text" id="localidade" name="localidade">
                     </div>
 
-                    <div class="form-group">
-                        <label for="uf">UF:</label>
+                    <div class="form-group col-md-2">
+                        <label for="uf">UF</label>
                         <input type="text" id="uf" name="uf">
                     </div>
 
-                    <div class="form-group">
-                        <button type="button" id="clearButton">Limpar Formulário</button>
-                        <button type="button" id="submitButton">Salvar Endereço</button>
+                    <div class="form-group col-md-2">
+                        <button type="button" id="clearButton" class="btn btn-success">Limpar</button>
+                        <button type="button"  id="submitButton" class="btn btn-success">Salvar</button>
                     </div>
                 </form>
             </div>
         </div>
 
     <div class="container" id="savedAddresses">
-        <h2 class="text-center mb-4">Endereços Salvos</h2>
+        <h2 class="text-center mb-4">______________________________________________</h2>
         <div class="row" id="addressList">
             <!-- ___________________________ -->
         </div>
