@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20;
+    margin: 15%;
+}
+ 
+header {
+    width: 100%;
+}
+
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    white-space: nowrap;
+    margin-right: 1rem;
+}
+
+.navbar-nav {
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    white-space: nowrap;
+}
+
+.container {
+    padding: 0 15px;
+}
+
+.tabelona {
+    text-align: center;
+}
+
+.tabelona img {
+    width: 120px;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+
+.tabelona h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #000000;
+    outline: none;
+}
+
+
