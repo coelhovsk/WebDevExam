@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const submitButton = document.getElementById('submitButton');
     const addressForm = document.getElementById('addressForm');
     const addressList = document.getElementById('addressList');
-
+    const search = document.getElementById("search")
     // Carrega endereços salvos ao iniciar
     loadSavedAddresses();
 
@@ -110,6 +110,46 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('Endereço salvo com sucesso!');
     }
 
+    search.addEventListener('blur', function () {
+        if (this.value.trim() !== '') {
+            filter();
+        }else{
+            loadSavedAddresses();
+        }
+    });
+
+    function filter(){
+        console.log('em desenvolvimento')
+        var searchQuery = document.getElementById('search').value;
+        var localStorageItem = localStorage.getItem(searchQuery);
+        const savedAddresses = JSON.parse(localStorage.getItem('savedAddresses')) || [];
+        addressList.innerHTML = '';
+
+        if (savedAddresses.length === 0) {
+            addressList.innerHTML = '<p class="text-center">Nenhum endereço salvo ainda.</p>';
+            return;
+        }
+        savedAddresses.forEach((address, index) => {
+            var name = address.nome;
+            if(name.startsWith(searchQuery)){
+            const card = document.createElement('div');
+            card.className = 'col-md-6 mb-3';
+            card.innerHTML = `
+                        <div class="card address-card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-0">${address.nome}</h5>
+                                <p class="card-text"><strong>Email:</strong> ${address.email}</p>
+                                <p class="card-text"> ${address.logradouro || 'N/A'}, N° ${address.numero || 'N/A'},</p>
+                                <p class="card-text"> ${address.bairro || 'N/A'}, ${address.cidade || 'N/A'} - ${address.uf || 'N/A'}</p>
+                                <p class="small class="text-muted">CEP:</strong> ${address.cep}</p>
+                                <button class="btn btn-sm btn-primary edit-btn" data-index="${index}">Editar</button>
+                                <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Remover</button>
+                            </div>
+                        </div>
+                    `;}
+        });
+    }
+
     // Função para carregar e exibir endereços salvos
     function loadSavedAddresses() {
         const savedAddresses = JSON.parse(localStorage.getItem('savedAddresses')) || [];
@@ -120,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // Ordena por data (do mais recente para o mais antigo)
 
         savedAddresses.forEach((address, index) => {
             const card = document.createElement('div');
